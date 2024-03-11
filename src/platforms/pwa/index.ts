@@ -143,10 +143,12 @@ export class PwaAssetGenerator extends AssetGenerator {
     const destDir = join(pwaAssetDir, PWA_ASSET_PATH);
     try {
       await mkdirp(destDir);
-    } catch {
+    } catch (e) {
       // ignore error
+      console.error(e);
     }
 
+    console.log('Weiter gehts');
     // TODO: In the future, add size checks to ensure canvas image
     // is not exceeded (see Android splash generation)
     const targetLogoWidthPercent = this.options.logoSplashScale ?? 0.2;
